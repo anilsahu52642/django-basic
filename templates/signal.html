@@ -1,0 +1,14 @@
+{% extends 'common.html' %}
+{% block title %}signal page{% endblock title %}
+{% block sigal %}
+<h1>This is signal page</h1><hr>
+
+<h3 style='color:red;'>All code are written inside signals.py file,apps.py and __init__.py file</h3>
+
+<hr>
+<a href="http://127.0.0.1:8000/admin/" class='btn btn-warning'>admin page</a><hr>
+<a href="{% url 'mexception' %}" class='btn btn-warning'>create exception</a>
+<a href="{% url 'customizedsignals' %}" class='btn btn-info'>customized signal</a>
+
+
+{% endblock sigal %}

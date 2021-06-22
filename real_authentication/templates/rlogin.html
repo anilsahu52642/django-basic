@@ -1,0 +1,128 @@
+{% extends 'common.html' %}
+{% block title %}real login{% endblock title%}
+{% block rlogin %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <form action='' method='POST' novalidate>
+        {% csrf_token %}
+      {{form.as_p}}
+
+      <input type='submit' value='login' class='btn btn-primary'>
+      </form>
+      <h6 class='text-danger'>Till now not resistered? <a href="{% url 'rsignup' %}">signup</a>here</h6>
+      <h6>forgot password ???<a href="/rpreset">reset password</a></h6>
+    </div>
+
+
+<div class="col-sm-4 offset-2">
+  <div class='my-5'>
+    <ul>
+      <li><a href="{% url 'social:begin' 'facebook' %}" class='btn btn-primary btn-block '><span class='text-center'>Login with facebook <i class="fab fa-facebook"></i></span></a></li>
+      <li><a href="{% url 'social:begin' 'facebook' %}" class='btn btn-primary my-3 btn-block'>Login with Facebook 2 <i class="fab fa-facebook"></i></a></li>
+      <li><a href="{% url 'social:begin' 'google-oauth2' %}" class='btn btn-danger btn-block'>Login with Google <i class="fab fa-google"></i></a></li>
+    </ul>
+  </div>
+</div>
+  </div>
+
+<hr>
+  <ul class='text-dark'>
+    <h2>Giving http connection to the website....</h2><br>
+    <li><h5>after succesful authentication we can go to local host but some authentication site doesnot accepts localhost as url so for this we have to give the domain name..</h5></li>
+    <li><h5>for setting domain name ...go to (C:\Windows\System32\drivers\etc) and open the file 'hosts' and add this line in bottom (127.0.0.1	basicproject.org)(if unable to rename then copy the file to any other location and rename and move and bring that file to origional position and replace)</h5></li>
+    <li><h5>after this in settings.py-ALLOWED_HOSTS   add this ....(see ALLOWED_HOSTS in settngs)....and save..</h5></li>
+    <li><h5>now you can access your page by using  'http://basicproject.org:8000/' or 'http://localhost:8000/' or 'http://127.0.0.1:8000/'</h5></li>
+    <br>
+    <li><h5>after these we have to run server through https......for this we needs TLS(transfer layer security) protocol which is used for secure connection......for this we have to install django extension (in cmd install all  ((pip install django-extensions)and(pip install werkzeug)and (pip install pyOpenSSL))</h5></li>
+    <li><h5>after this go to settings-INSTALLED_APPS and add app('django_extensions')</h5></li>
+    <li><h5>after this go to cmd and type (python manage.py runserver_plus --cert-file cert.crt)</h5></li>
+    <li><h5>after this our project is ready for http connections now you can access your website(https://basicproject.org:8000/) and before that turn on internet connection</h5></li>
+    <li><h5>if after this it is showing error of your connection is not private then click advance and at bottom click 'proceed to basicproject.org(Unsafe)' this error is because we are using a self generated certificate</h5></li>
+  </ul>
+  <hr>
+
+
+<ul class='text-dark text-justify'>
+  <h2>for social authentication(facebook,google....etc).....</h2><br>
+  <li><h5>inside command write (pip install social-auth-app-django)</h5></li>
+  <li><h5>and after this we have to write('social_django'     inside settings.py-installed apps (it is the default app name for social authentication))</h5></li>
+  <li><h5>and after this we have to migrate(py manage.py migrate social_django)</h5></li>
+  <li><h5>after this we have to add one middaleware ('social_django.middleware.SocialAuthExceptionMiddleware')</h5></li>
+  <li><h5>after this add some line in settings->templates->options->context_processors(
+    <pre>
+      'social_django.context_processors.backends',
+      'social_django.context_processors.login_redirect',
+    </pre>
+    )</h5></li>
+  <li><h5>after this add authentication backends like below.........</h5></li>
+  <pre><li><h5>AUTHENTICATION_BACKENDS = (
+      'social_core.backends.facebook.FacebookOAuth2',
+      'social_core.backends.twitter.TwitterOAuth',
+      'social_core.backends.github.GithubOAuth2',
+      'django.contrib.auth.backends.ModelBackend',
+      'social_core.backends.google.GoogleOAuth2',)</h5></li></pre>
+  <li><h5>after this create a url for social authentication inside project level urls.py file
+    <pre>path('oauth/', include('social_django.urls', namespace='social'))</pre></h5></li>
+  <li><h5>after this proovide default value for login,logout and login redirect(where we have to go after login ,logout and profile)</h5></li>
+  <pre><li><h5>
+  LOGIN_URL = 'reallogin'
+  LOGOUT_URL = 'rlogout'
+  LOGIN_REDIRECT_URL = 'rprofile'</h5></li></pre>
+  </ul>
+  <ul class='text-dark text-justify'>
+    <hr>
+  <h3>for giving authentication via facebook.....</h3>
+  <li><h5>for facebook authentication visit https://developers.facebook.com/   and signup and sign in and go to (myapps -> create app ->consumer ->give app display name(any name) and email id and create app id(submit) ->select facebook login(Setup) ->web ->give site url (https://basicproject.org:8000/ or http://localhost:8000) ->continue ->next ->next->next...and after this go to settings ->basic and note the appid and app secret key which are unique for every app and set app domain (basicproject.org or localhost) and save the changes)</h5></li>
+  <li><h5>after this go to settings ->basic(left side of the site) note the app id and app secret(which are unique for all app created)(app id->289648922832635,app secret->10298aa45ebb31b8785d59425d5da23b) and set app domain (localhost) and set website(site url)(http://localhost:8000/) and hit save changes</h5></li>
+  <li><h5>after this add below lines with your own app id and app secret</h5></li><br>
+  <li><h5>these are for project if our project have not http connection available for our project (localhost:8000/)</h5></li>
+  <pre>
+    <li><h5>
+    SOCIAL_AUTH_FACEBOOK_KEY = '289648922832635'  # App ID
+    SOCIAL_AUTH_FACEBOOK_SECRET = '10298aa45ebb31b8785d59425d5da23b'  # App Secret
+</h5></li>
+</pre><br>
+  <h5>these are for project if our project have https connections (https://basicproject.org:8000/)</h5>
+  <li><h5>for this same as above but changes are(app domain->basicproject.org)</h5></li>
+  <li><h5>after this go to facebook login->settings(available left side of site) and these should be yes (Client OAuth Login,Web OAuth Login,Enforce HTTPS,Embedded Browser OAuth Login)  and set Valid OAuth Redirect URIs(https://basicproject.org:8000/social-auth/complete/facebook/) and save changes</h5></li>
+<pre>
+  <li><h5>
+    SOCIAL_AUTH_FACEBOOK_KEY = '1163663650814436'  # App ID
+    SOCIAL_AUTH_FACEBOOK_SECRET = '1a09f0263d5f2b4821397cdf0d995ad9'  # App Secret</h5></li>
+</pre>
+  <li><h5>if after login it shows erro like redirect uri failed then hit ok and from next page copy the url from address bar and add that url to developers.facebook.com's facebook login->settings->Valid OAuth Redirect URIs(https://basicproject.org:8000/oauth/complete/facebook/) and save changes..</h5></li>
+  <li><h5>to avoid this error user url as like we are using inside our project level url file path i.e.(oauth) not(social-auth)</h5></li>
+  <li><h5>after this give link in your html page for facebook with this link(<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>).....(see rlogin.html)</h5></li>
+  <li><h5>this will work when we access our site using (localhost:8000/) because we are mentinend during creating app in develepores.facebook.com    (it will not work in 127.0.0.1:8000/)</h5></li>
+  <li><h5>after login successfully automatically a new user is created with username,first_name,last_name and password of facebook account of user and stores details inside 'social auth' table created in the database after migrations of social_auth and next time we login it will not ask for passeord any more</h5></li>
+  <li><h5 class='text-white'>facebook developer email id(anil.sipun52642@gmail.com) password(@anilsahu52642@)</h5></li>
+  <li><h5>for more visit studygyaan.com</h5></li>
+  <h3>for google authentication...........</h3>
+  <li><h5>login to console.cloud.google.com and create project (let basicproject) and inside basicproject->click three lines in left side of website and click credintials->create credintials->oauth client id->configure consent screen->user type=(external)->app name=(basic app) and authorized domain=(basicproject.org) and developer contact information=(anil.sipun52642@gmail.com) and click save and continue</h5></li>
+  <li><h5>after this add ('social_core.backends.google.GoogleOAuth2') inside AUTHENTICATION_BACKENDS</h5></li>
+  <li><h5>after this go to console.cloud.google.com->credintials->create credintials->OAuth client Id->application type(web applications) and name=(name of project  basicproject) and authorized redirect URI=(https://basicproject.org:8000/oauth/complete/google-oauth2/) and click create and get client id and secret key use in below</h5></li>
+  <pre>
+    <li><h5>
+      SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '814871923783-olsjor2ds710n11jaerqll40lq5q5pv0.apps.googleusercontent.com'  # App ID
+      SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'rlD-f-VtuG5QhXTC0WQlHcxq'  # App Secret
+    </h5></li>
+  </pre>
+  <li><h5>after this go to html file(rlogin.html) and link for google sign in</h5></li>
+  <li><h5>after this go to console.cloud.google.com->api and services->dashboard->enable api and services->search google plus->select google plus api->click Enable</h5></li>
+  <li><h5>this will work only when we accessing our page through https://basicproject:8000/(http connection is required)</h5></li>
+
+<li><h5 class='text-white'>console.cloud.google.com email id(anil.sipun52642@gmail.com) password(@anilsahu52642@)</h5></li>
+<li><h5 class='text-white'>some chages are happening during giving link and while giving socila auth secret key and id incase of google authentication system</h5></li>
+<li><h5 class='text-white'>if these are showing error (AuthAllreadyAssociated) then in your browser goto inconginto mode and try</h5></li>
+</ul>
+<hr>
+<h4 class='text-white'>inside urls.py file(project level)  write these codes..</h4><br>
+<h5>path('oauth/', include('social_django.urls', namespace='social')),</h5>
+<h4 class='text-white'>inside rlogin.html</h4>
+<h5><a href="{% url 'social:begin' 'facebook' %}" class='btn btn-primary my-3 btn-block'>Login with Facebook 2 <i class="fab fa-facebook"></i></a>
+<a href="{% url 'social:begin' 'google-oauth2' %}" class='btn btn-danger btn-block'>Login with Google <i class="fab fa-google"></i></a></h5>
+</div>
+
+
+{% endblock rlogin %}

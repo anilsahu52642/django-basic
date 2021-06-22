@@ -1,0 +1,13 @@
+{% extends 'common.html' %}
+{% block title %}middleware page{% endblock title %}
+{% block cmiddleware %}
+<h1 style='color:red;'>This is middleware page</h1>
+<hr>
+<h3 style='color:magenta;'>codes are written in middlewares.py file and settings.py file </h3><hr>
+<h6>the middleware which is not requeired comment middleware line from settings.py file</h6><hr>
+{{name}}<hr>
+<a href="{% url 'mexception2' %}" class='btn btn-success'>create exception2</a>
+<a href="{% url 'tempresponsemiddleware' %}" class='btn btn-success'>template response middleware</a>
+
+
+{% endblock cmiddleware %}

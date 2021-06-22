@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<body onkeypress='hello2()' onresize='hello()' onscroll="hello2()">
+<button type="button" id='anilbutton' name="button">Click me</button>
+<p ondblclick="hello2()">this is paragraph</p>
+<hr>
+<h3 >hello... please select some text from below input box</h3>
+<input type="text" onselect="hello2()" value="Hello world!">
+
+<script>
+hello2=()=>{alert('how are you ........')}
+
+
+</script>
+<script src="{% static 'js/rough.js' %}"></script>
+</body>
+</html>

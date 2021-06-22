@@ -1,0 +1,24 @@
+{% extends 'common.html' %}
+{% block title %}calculator{% endblock title %}
+{% block calculator %}
+
+<div class='container'>
+  <div class='row'>
+  <div class='col-sm-6'>
+    <creating form manually>
+<form action='' method='POST'>
+  {% csrf_token %}
+<h4>first value:</h4><input type='text' class='form-control' name='first' id='fv'>
+<h4>second value:</h4><input type='text' class='form-control' name='second' id='sv'>
+<input type='submit' class='btn btn-primary' value='calculate'>
+</form>
+</div>
+<div class='col-sm-3' offset-3>
+
+<h4>Your value is:{{value}}</h4>
+</div>
+</div>
+</div>
+
+
+{% endblock calculator %}

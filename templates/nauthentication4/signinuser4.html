@@ -1,0 +1,21 @@
+{% extends 'common.html' %}
+{% block title %}signin user 4{% endblock title %}
+{% block signinuser4 %}
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-4'>
+<form action='' method='POST'>
+  {% csrf_token %}
+{{form.as_p}}
+<input type='submit' class='btn btn-info' value='signin'>
+</form>
+{% if messages %}
+{% for m in messages %}
+<span class='{{m.tags}}'>{{m}}</span>
+
+{% endfor %}
+{% endif %}
+</div>
+</div>
+</div>
+{% endblock signinuser4 %}

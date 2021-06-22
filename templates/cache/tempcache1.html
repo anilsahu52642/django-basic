@@ -1,0 +1,15 @@
+{% load cache %}
+{% include 'common.html' %}
+{% block tempfragmentcachepage1 %}
+This is cache page 33333<br>
+This is cache page 33333<br>
+This is cache page 33333<br>
+{% cache 15 anil %}
+
+<hr>
+data inside this block is cached<br>
+aaaaa
+<hr>
+<a href="{% url 'deletecache' %}" class='btn btn-warning'>delete cahce</a>
+{% endcache anil %}
+{% endblock tempfragmentcachepage1 %}

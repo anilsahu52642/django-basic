@@ -1,0 +1,16 @@
+{% include 'common.html' %}
+{% block listview1 %}
+<h1>This is list view</h1><hr>
+<h3>all people lisst present in the the database by using default template_name </h3>
+{{people_list}}<br>
+{% for p in people_list %}
+{{p.id}}
+{{p.name}}
+{{p.fname}}
+{{p.lname}}
+{{p.email}}
+{{p.password}}<br>
+
+
+{% endfor %}
+{% endblock listview1 %}

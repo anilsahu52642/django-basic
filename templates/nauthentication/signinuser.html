@@ -1,0 +1,13 @@
+{% extends 'common.html' %}
+{% block title %}signin user
+{% endblock title %}
+{% block signinuser %}
+<div class='container'>
+<form action="" method='POST'>
+  {% csrf_token %}
+  <h5>Name:</h5><input type='text' class='form-control' name='usname1'>
+  <h5>Password:</h5><input type='text' class='form-control' name='uspassword1'>
+  <input type='submit' class='btn btn-primary' value='signin'>
+</form>
+</div>
+{% endblock signinuser %}

@@ -1,0 +1,7 @@
+{% extends 'common.html' %}
+{% block title %}cookies page{% endblock title %}
+{% block deletecookies1 %}
+<h4 style='color:white;'>deleting cookies........</h4>
+<a href="{% url 'setting_cookies_page' %}" class='btn btn-warning'>setting cookies data</a>
+<a href="{% url 'getting_cookies_page' %}" class='btn btn-warning'>getting cookies data</a>
+{% endblock deletecookies1 %}

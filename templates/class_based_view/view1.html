@@ -1,0 +1,58 @@
+{% extends 'common.html' %}
+{% block title %}class based view{% endblock title %}
+{% block class_based_view %}
+<h1 style='color:red;'>This is class based view</h1><hr>
+<h5>
+  myname is:{{myname}}<br>
+  myname is:{{myname2}}
+  <h4 style='color:magenta;'>The slug is:{{post}}</h4>
+</h5>
+<hr>
+<form action='' method='POST'>
+  {% csrf_token %}
+{{form.as_p}}
+<input type='submit'>
+  <hr>
+<a href="{% url 'myview2' %}" class='btn btn-secondary'>class2</a>
+<a href="{% url 'myview3' %}" class='btn btn-success'>class3</a>
+<a href="{% url 'fview1' %}" class='btn btn-primary'>fview1</a>
+<a href="{% url 'myview4' %}" class='btn btn-success'>class4</a>
+<hr>
+<a href="{% url 'tview1' %}" class='btn btn-success'>template view 1</a><br>
+<a href="{% url 'tview2' %}" class='btn btn-success'>template view 2</a><br>
+<a href="http://127.0.0.1:8000/tv5/this_is_slug" class='btn btn-success'>template view 3</a><br>
+
+<hr>
+<a href="{% url 'redview1' %}" class='btn btn-success'>redirect view 1</a>
+<a href="{% url 'redview2' %}" class='btn btn-success'>redirect view 2</a><br>
+<a href="{% url 'redview3' %}" class='btn btn-success'>redirect view 3</a>
+<a href="{% url 'redview4' %}" class='btn btn-success'>redirect view 4</a><br>
+
+<hr>
+
+<a href="{% url 'listview1' %}" class='btn btn-success'>listview 1</a>
+<a href="{% url 'listview2' %}" class='btn btn-success'>listview 2</a><br>
+<hr>
+<a href="http://127.0.0.1:8000/dv1/8" class='btn btn-success'>detail view 1</a>
+<a href="http://127.0.0.1:8000/dv2/8" class='btn btn-success'>detail view 2</a>
+<br>
+<hr>
+<a href="{% url 'formview2' %}" class='btn btn-success'>form view 1</a><br>
+
+<hr>
+<a href="{% url 'createview2' %}" class='btn btn-success'>create view 1</a><br>
+
+<hr>
+<a href="http://127.0.0.1:8000/uv1/45/" class='btn btn-success'>update view 1</a><br>
+
+<hr>
+
+<a href="http://127.0.0.1:8000/delv1/45/" class='btn btn-success'>delete view 1</a><br>
+<h7 style='color:red;'>now it will show error because the object with this pk mentioned in view1.html file is deleted ....</h7>
+
+
+
+
+
+
+{% endblock class_based_view %}

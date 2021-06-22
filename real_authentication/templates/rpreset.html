@@ -1,0 +1,22 @@
+{% extends 'common.html' %}
+{% block title %}real pasword reset{% endblock title %}
+{% block rpasswordreset %}
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-6">
+    <h3>enter email here to reset your password</h3>
+    <form class="" action="" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" name="" value="send email" class='btn btn-success'>
+
+    </form>
+
+  </div>
+
+</div>
+
+</div>
+
+{% endblock rpasswordreset %}

@@ -1,0 +1,76 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block title %}all notes{% endblock title %}
+{% block content %}
+<script>
+    prompt('enter your name')
+</script>
+
+
+<div class="container id='acontainer'">
+<div class="card my-5 p-4 col-md-12" style="border:3px solid black">
+    <div class="card-body" style="background-image: linear-gradient(to right, blue,cyan,white)">
+        <form action="" method="POST" style="text-align:center" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" name="upload" class="btn btn-info d-inline">
+
+
+        </form>
+        <button class="btn btn-success" onclick="addelement()">add new</button>
+
+    </div>
+
+</div>
+
+    <!--for messages after uploading and deleting-->
+    <div class="alert bg-danger text-center text-white col-lg-12 col-md-10 col-sm-6">
+
+            {% if messages %}
+            {% for m in messages %}
+            {{m}}
+            <!--<span style="color:red">{{m}}</span>-->
+            {% endfor %}
+            {% endif %}
+    </div>
+
+    <!--for showing all images in the database-->
+{% for ai in allimage %}
+    <div class="card" style="background-color:cyan">
+        <div class="row">
+            <div class="col-md-10">
+            <img src="{{ai.photo.url}}" width="100%" class="col-md-12 col-sm-12 col-lg-12">
+            </div>
+            <div class="col-md-2 my-3">
+                <!--<button class="btn btn-outline-danger">delete</button>-->
+                <a href="{% url 'deletenotes' ai.pk %}" class="btn btn-outline-danger text-center">delete</a> <br>
+                Page no:{{forloop.counter}}
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <script>
+    function addelement(){
+    prompt('what is the name of the new note')
+    var a=document.createElement('h1')
+    a.innerHTML='new heading added by anil'
+    <!--document.write(a);-->
+    <!--var el=document.createElement('h1');-->
+    <!--el.innerText='new notes added by anil';-->
+    }
+    </script>
+
+</div>
+
+
+
+
+
+{% endblock content %}
+
+
+
+

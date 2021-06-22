@@ -1,0 +1,37 @@
+{% extends 'common.html' %}
+{% block title %}create object 2{% endblock title %}
+
+{% block createobject2 %}
+<div class='container'>
+    <div class='row'>
+      <div class='col-sm-4'>
+        <form action='' method='POST'>
+          {% csrf_token %}
+          {{form.as_p}}
+          <input type='submit' class='btn btn-primary' value='signup'>
+        </form>
+        {% if messages %}
+        {% for m in messages %}
+        {{m.tags}}
+        <span class={{m.tags}}>{{m}}</span>
+
+        {% endfor %}
+        {% endif %}
+
+          <br><hr>
+        <form action='' method='POST'>
+          {% csrf_token %}
+          {% for f in form %}
+          {{f.label_tag}}{{f}}{{f.errors}}
+          {% endfor %}<br>
+          <input type='submit' class='btn btn-primary' value='signup'>
+        </form>
+        {% if messages %}
+        {% for m in messages %}{{m}}{% endfor %}
+        {% endif %}
+
+</div>
+</div>
+</div>
+
+{% endblock createobject2 %}

@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+{% block title %}profile page{% endblock title %}
+{% block profile %}
+<form action='' method='POST'>
+  {% csrf_token %}
+{{form.as_p}}
+<input type='submit' value='change' class='btn btn-primary'>
+</form>
+<a href="{% url 'logout_page' %}" class='btn btn-secondary'>logout</a>
+<br><hr>
+{% if perms.nauthentication.delete_people %}
+<h5 class='alert alert-info'>you have permission to delete data of object</h5>
+{% endif %}
+
+{% if perms.nauthentication.add_people %}
+<h5 class='alert alert-info'>you have permission to add data into object</h5>
+{% endif %}
+
+{% if perms.nauthentication.change_people %}
+<h5 class='alert alert-info'>you have permission to change data of object</h5>
+{% endif %}
+
+{% if perms.nauthentication.view_people %}
+<h5 class='alert alert-info'>you have permission to view data of object</h5>
+{% endif %}
+
+<hr>
+<a href="{% url 'password_change1' %}" style='color:brown;'>change password</a>
+<a href="{% url 'password_change2' %}" style='color:magenta;'>change password type2</a>
+
+
+{% endblock profile %}

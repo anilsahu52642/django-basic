@@ -1,0 +1,65 @@
+{% extends 'common.html' %}
+{% block title %}create object
+{% endblock title %}
+{% block createobject %}
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-4'>
+<h4>By using models.py and code in html page</h4>
+<hr>
+<form action='' method='POST'>
+  {% csrf_token %}
+  <h5>Name:</h5><input type='text' class='form-control' name='name2'>
+  <h5>Password:</h5><input type='text' class='form-control' name='password1'>
+  <h5>Password(again):</h5><input type='text' class='form-control' name='password2'>
+  <h5>Email:</h5><input type='text' class='form-control' name='email2'>
+  <h5>First Name:</h5><input type='text' class='form-control' name='fname2'>
+  <h5>Last Name:</h5><input type='text' class='form-control' name='lname2'>
+
+  <br>
+  <input type='submit' value='add' class='btn btn-warning'>
+
+</form>
+</div>
+<div class='col-sm-4 offset-1'>
+  {% if allobjects %}
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Password</th>
+      <th scope="col">Password2</th>
+      <th scope="col">Email</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in allobjects %}
+    <tr>
+      <td>{{x.id}}</td>
+      <td>{{x.name}}</td>
+      <td>{{x.password}}</td>
+      <td>{{x.password2}}</td>
+      <td>{{x.email}}</td>
+      <td>{{x.fname}}</td>
+      <td>{{x.lname}}</td>
+      <td>
+        <a href="{% url 'delete_object' x.id %}" class='btn btn-danger btn-sm'>Delete</a>
+
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  {% else %}
+  not available
+  {% endif %}
+
+
+</div>
+</div>
+</div>
+{% endblock createobject %}

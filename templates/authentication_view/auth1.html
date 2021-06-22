@@ -1,0 +1,28 @@
+{% include 'common.html' %}
+{% block authentication_view1 %}
+<h1 style='color:white;'>This is authentication view.....</h1><hr>
+<h4 style='color:red;'>All codes are written by django we have to import it in urls.py file and call that function</h4>
+<h4>codes are written inside urls.py file</h4><br>
+
+
+<h1 style='color:white;'>This is for function based view............</h1>
+<!-- in below link login is fron django prewritten url name for login-->
+<a href='login' class='btn btn-success'>login</a>
+<a href='http://127.0.0.1:8000/auth1/password_reset' class='btn btn-info'>forgot password</a>
+<hr>
+
+<h1 style='color:white;'>This is for class based view............</h1>
+<a href="http://127.0.0.1:8000/accounts/login" class='btn btn-success'>login2</a>
+<a href='http://127.0.0.1:8000/accounts/password_reset' class='btn btn-info'>forgot password 2</a>
+
+
+
+
+
+
+<hr>
+<h2 class='aler alert-success'>If we are using above codes then after succcessful password reset and other similar like that we are redirecting to the django's default template to change it we can customise it....</h2><hr>
+<a href="{% url 'login33333' %}" class='btn btn-success'>login 3</a>
+do similarly for password reset also ....follow procedure of password change...and give login required and staff memer required..
+
+{% endblock authentication_view1 %}

@@ -1,0 +1,50 @@
+{% extends 'common.html' %}
+{% block title %}hosting app{% endblock title %}
+{% block content %}
+<div class="container">
+  <h2 class='text-white'>Hosting project in pythonanywhere.com</h2><br>
+  <h5>
+
+  <ol class='text-dark'>
+
+  <li>At first we have stop the server and go to the project folder in which manage.py available</li>
+  <li>inside cmd type(pip freeze)..it will show all library installed for running the project so we have to keep these list for future use so we have to convert the list showing in cmd(console) to text file so for that we have to run one command(pip freeze > anyfilename.txt) which will create one text file named with(anyfilename.txt) inside the project after this go to file explorer in computer and make the project to zip fie(outer project folder)</li>
+  <li>Go to pythonanywhere.com and create one account(click pricing and signup->create a beginner account->fill the required data (username=anilsahu52642,email=anil.sipun52642@gmail.com,password=@anilsahu52642@)and varify from link send to gmail account and ->login to account)</li>
+  <li>After this we have to upload the zip file which we have converted recently by going to files and after this you can see some default files and directories.These files and directories are not required so delete them. and after this upload the zip file by click on upload a file and select the file</li>
+  <li>After this we have to extract that zip file by using command so for that go to console and click on 'Bash'(available on left side under start a new console-other-Bash)</li>
+  <li>After click on Bash one console will open(as our account is free and beginner level so simmulateously we can open two Bash only)</li>
+  <li>After this for doing anythings we have to first create the virtual environment by writing(mkvirtualenv anyname --python=/usr/bin/pythonVersion) [eg.     mkvirtualenv geek --python=/usr/bin/python3.8 ]</li>
+  <li>After this our virtual environment is created...see at bottom if you can see name given to virtual environment(geek) then it is created and activatd also.....</li>
+  <li>If it is not active then we have to active by using command (workon namegiven)[eg.  workon geek]</li>
+  <li>After this for unzip we have to type command(unzip projectname)[eg.  unzip crud_project]. we can see all unzipped file by clicking on three lines on right side of console->files->open in new tab</li>
+  <li>After this click on web->add a new web app->next->manual configuration(including virtualenvs)->select python version(python3.8)->next</li>
+  <li>After this in new redirected page find 'virtualenv' and inside virtualenv click on 'Enter path to a virtualenv, if desired' and type name of virtual environ name given during creation of virtual environment(geek)</li>
+  <li>After this go to Bash (if used Bash is closed unfortunately then go to console->your consoles->click on the Bash link below it)or if we copletely closed our Bash (no Bash link is shown inside your consoles) then go to console->Bash(it will give one new Bash with out active the virtual environment we have to active it manually by writing code inside console 'workon virtualenvName'[eg.  workon geek])</li>
+  <li>After this we can write 'dir' inside console to view all data available in the current environment. After this go to extracted project folder by writing (cd crud_project)</li>
+  <li>After this we have install all required data to run project(saved as text file) by writing (pip install -r required.txt).After this it will install all app listed inside (required.txt)</li>
+  <li>After this go to web by clicking on three lines(at right side of console)->web</li>
+  <li>After this go to wsgi file (inside web->code->WSGI configuration file).Click on the link available .After this it will give one editor with some prewritten code .</li>
+  <li>From the code delete (from description(line 4)--->above of Django(line 73)) and delete also (Flash related code) i.e. keep only django related code and then we have to remove lines from comment by clicking (ctrl+/) after django</li>
+  <li>After this we have to change the 'mysite' written in the 'os.environ[...]='mysite.settings' to inner project folder name(crud_project) and change the 'mysite' written inside path to rootproject folder name(crud_project)..  [path = '/home/anilsahu52642/mysite'---->path = '/home/anilsahu52642/crud_project'] and click on 'save'</li>
+  <li>After this we have to do setup for Database by writing code inside console [for mysql-(./manage.py migrate),for sqlite-(python manage.py migrate)]</li>
+  <li>After this go to files(clicking on three line->files) and delete the zip file present and after this go to inner project folder(from left side of the page inside directory) [eg. crud_project] and similarly go to inner project folder and open 'settings.py' file after this open one editor</li>
+  <li>After this inside 'settings.py' file make (DEBUG= False    and ALLOWED_HOSTS=['*']{here * means everyone can host}   and comment the previously added STATICFILES_DIRS line and add     STATIC_ROOT=os.path.join(BASE_DIR,'static/')) and click 'save'</li>
+  <li>And after this go to console->Bash and if you are allready inside the projectfolder then write (python manage.py collectstatic) and it will automatically collect all static files and save to another folder '/home/anilsahu52642/crud_project/static'.</li>
+  <li>After this go to web tab (by clicking three line and web) and go to 'Static files' and enter url and write ('/static/') {as like written inside settings.py file} and enter path (/home/anilsahu52642/crud_project/static){where static project folder available}</li>
+  <li>After this click on 'reload anilsahu52642.pythonanywhere.com' button present at top of the current page</li>
+</ol>
+
+  <pre class='text-white'>
+  username for pythonanywhere.com=anilsahu52642
+  password for pythonanywhere.com=@anilsahu52642@
+  website url=anilsahu52642.pythonanywhere.com.
+  for help=https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
+  <a href="https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/" class='text-warning' target='_blank'>steps for hosting in pythonanywhere</a>
+</pre>
+
+  </h5>
+
+
+
+</div>
+{% endblock content %}

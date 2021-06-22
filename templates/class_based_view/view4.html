@@ -1,0 +1,25 @@
+{% include 'common.html' %}
+{% block editing_view %}
+<h1 style='color:white;'>This is form view</h1><br>
+<form action='' method='POST'>
+{% csrf_token %}
+{{form.as_p}}
+<input type='submit'>
+</form>
+<hr>
+
+<form action='' method='POST'>
+{% csrf_token %}
+{{form.as_p}}
+<input type='submit'>
+</form>
+
+
+<h4 style='color:red;'>for delete view...........</h4>
+<form action='' method='POST'>
+  {% csrf_token %}
+<input type='submit' value='conform delete' class='btn btn-danger'>
+</form><br>
+<a href="{% url 'myview1' %}" class='btn btn-primary'>dont want to delete</a>
+
+{% endblock editing_view %}

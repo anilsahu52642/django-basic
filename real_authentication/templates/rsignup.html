@@ -1,0 +1,22 @@
+{% extends 'common.html' %}
+{% block title %}real signup{% endblock title %}
+{% block real_signup %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <form class="" action="" method="post">
+        {% csrf_token %}
+        Username<input type="text" class="form-control" name="username" value=""><br>
+        Password<input type="password" class='form-control' name="password" value=""><br>
+        <input type="submit" name="" value="singup">
+
+      </form>
+      <h6 class='text-danger'>Allready resistered? <a href="{% url 'reallogin' %}">signin</a>here</h6>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock real_signup %}

@@ -1,0 +1,22 @@
+{% extends 'common.html' %}
+{% block title %}updating object3{% endblock title %}
+{% block updateobject3 %}
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-4'>
+<form action='' method='POST'>
+  {% csrf_token %}
+{{updateform.as_p}}
+<input type='submit' class='btn btn-success'>
+</form>
+{% if messages %}
+{% for m in messages %}
+<span class='{{m.tags}}'>{{m}}</span>
+{% endfor %}
+{% endif %}
+{{oname}}
+</div>
+</div>
+</div>
+
+{% endblock updateobject3 %}

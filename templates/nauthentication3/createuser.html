@@ -1,0 +1,23 @@
+{% extends 'common.html' %}
+{% block title %}creating user3{% endblock title %}
+{% block createuser3 %}
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-4'>
+<form action='' method='POST'>
+  {% csrf_token %}
+{{form.as_p}}
+<input type='submit' class='btn btn-info' value='signup'>
+</form>
+{% if messages %}
+{% for m in messages %}
+<span class='{{m.tags}}'>{{m}}</span>
+<a class='btn btn-info' href="{% url 'signin_user3' %}">signin</a>
+
+{% endfor %}
+{% endif %}
+<h8>Allready a member???</h8><a class='btn btn-primary' href="{% url 'signin_user3' %}">signin</a>
+</div>
+</div>
+</div>
+{% endblock createuser3 %}

@@ -1,0 +1,24 @@
+{% extends 'common.html' %}
+{% block title %}cookies page{% endblock title %}
+{% block getcookiepage1 %}
+<h4 style='color:white;'>getting cookies........</h4>
+<h5 style='color:cyan;'>{{result}}</h5>
+<h5 style='color:cyan;'>{{cookie}}</h5>
+<h5 style='color:cyan;'>{{age}}</h5>
+<h5 style='color:red;'>{{keys}}</h5>
+{% for k in keys %}{{k}}{% endfor %}
+<h5 style='color:red;'>{{values}}</h5>
+{% for v in values %}{{v}}{% endfor %}
+<h5 style='color:red;'>{{items}}</h5>
+{% for x,y in items %}
+{{x}}
+{{y}}
+{% endfor %}
+<br>
+<hr>
+<a href="{% url 'setting_cookies_page' %}" class='btn btn-warning'>Setting cookies data</a>
+<a href="{% url 'deleting_cookies' %}" class='btn btn-warning'>deleting cookies data</a>
+<br>
+pageno:{{pagecount}}
+
+{% endblock getcookiepage1 %}

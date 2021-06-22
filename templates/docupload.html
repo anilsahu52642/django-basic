@@ -1,0 +1,71 @@
+{% extends 'common.html' %}
+{% block documentupload %}
+
+
+<h5>codes are written inside urls,views,models,html,forms,settings file</h5>
+<div class='container'>
+  <div class='card my-5' >
+    <div class='card-header py-3 text-center bg-info text-white'>
+      <h1 class='mb-3'> Use below form to upload your documents</h1>
+    </div>
+  <div class='card-body text-center bg-success text-black'>
+<form action='' method='POST' enctype='multipart/form-data'>
+  {% csrf_token %}
+  {{form}}
+  <input type='submit' value='upload' class='btn btn-warning'>
+</form>
+</div>
+</div>
+</div>
+<h1 class='text-info bfont alert-dark'>for giving more style in front end we can take icons from fontawesome.com and fonts.google.com</h1>
+<i class="fas fa-arrow-right fa-2x"></i><h5 class='bfont text-white'>for fontawesome visit fontawesome.com->get started for free->download->download fontawesome free for web........extract zip file and from css take (all.min.css) and from js take (all.min.js) and keep in the css and js folder and we have to link these two files inside our html file with link tag inside head tag of html code(use link tag of fontawesome at starting of all css file linking) and for js file we have to link inside body tag of html code with script tag(write link tag for js file <b class='text-danger'>after</b> linking of jquery.js and popper.js ...and <b class='text-danger'>before</b> bootstrap.js ) </h5>
+
+<i class="fas fa-arrow-right fa-2x"></i>
+<h5 class='bfont text-white'>for google font goto website fonts.google.com->select the font which is required->click i select this style->copy the link of font from selected families section of the font and paste in the head tag of html file for linking(before linking of our own written css file) and inside out written css file use font-family copied from that page only....the line whose text to be change we should write the (class) which given in our witten css file </h5>
+<h5>after this use link tag inside html file for fontawesome  for css file at top and also for js file at bottom</h5><hr>
+<h5 style='color:red;'>This icon is from <b class='text-white'>fontawesome.com</b>->icons->copy the html link of icons which you want and paste..... </h5>
+<h5 class='text-white'>to resize icon size visit->docs</h5><br>
+
+<i class="fas fa-phone-alt"></i>
+<i class="fas fa-phone-alt fa-lg"></i>
+<i class="fas fa-phone-alt fa-2x"></i>
+<i class="fas fa-phone-alt fa-2x"></i>
+<i class="fas fa-phone-alt fa-3x fa-spin"></i>
+<!-- for coloring and write code inside class as like previous -->
+<i class="fas fa-phone-alt fa-5x text-white"></i>
+<i class="fas fa-search-dollar fa-3x text-dark"></i>
+<i class="fas fa-search-dollar fa-3x text-white fa-spin"></i>
+<i class="fas fa-search-dollar fa-3x text-success"></i>
+
+
+
+
+<div class="fa-3x bg-dark text-white">
+  <i class="fas fa-spinner fa-spin"></i>
+  <i class="fas fa-circle-notch fa-spin"></i>
+  <i class="fas fa-sync fa-spin"></i>
+  <i class="fas fa-cog fa-spin"></i>
+  <i class="fas fa-spinner fa-pulse"></i>
+  <i class="fas fa-stroopwafel fa-spin"></i>
+</div>
+<br>
+
+<span class="fa-layers fa-fw" style="background:MistyRose">
+    <i class="fas fa-envelope fa-5x text-warning"></i>
+    <span class="fa-layers-counter" style="background:Tomato">1000</span>
+  </span>
+
+<hr>
+{% for a in images %}
+<i class="fas fa-sync fa-spin fa-3x text-white"></i>
+
+<img src="{{a.photo.url}}" height=300 width=385 class='ml-5'><span class="border border-success"></span>
+<img src="{{a.photo.url}}" class="rounded-sm rounded-circle mt-5" width='350px' height='350px'>
+<img src="{{a.photo.url}}" height=300 width=385 class='ml-5 rounded-pill'><br>
+
+{% endfor %}
+
+
+
+
+{% endblock documentupload %}

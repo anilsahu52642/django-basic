@@ -1,0 +1,19 @@
+{% extends 'common.html' %}
+{% block title %}real profile{% endblock title%}
+{% block rprofile %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <a href="/rpchange">change password</a><br>
+
+      <a href="{% url 'rlogout' %}" class='btn btn-primary'>logout</a>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+{% endblock rprofile %}

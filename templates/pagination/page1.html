@@ -1,0 +1,44 @@
+{% extends 'common.html' %}
+{% block pagination %}
+
+
+<!-- {{blogform.as_p}} -->
+
+
+<h4>use lorem inside html file to take automatic some words with out writing...</h4><hr>
+
+
+<!-- {{blog_list}} -->
+{% if is_paginated %}
+{% for a in page_obj %}
+<h4 style='color:white;'>{{a.writer}}</h4><br>
+<h6 style='color:brown'>{{a.content | truncatewords:30}}<a href="{% url 'fulldeatil' a.pk %}" style='color:black;'>read more</a></h6><br>
+{% endfor %}
+
+{% if page_obj.has_previous %}
+<a href="?page={{page_obj.previous_page_number}}" class='btn btn-info'>previous</a>
+{% endif %}
+
+
+<span class='btn btn-danger'>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</span>
+
+
+{% if page_obj.has_next %}
+<a href="?page={{page_obj.next_page_number}}" class='btn btn-success'>next</a>
+{% endif %}
+
+{% endif %}
+
+<hr>
+<h4 style='color:white;'>Below line codes are for detail view of object</h4><hr>
+
+<h3 style='color:white;'>full detail of clicked object {{blog.pk}} is:</h3><hr>
+<h4 style='color:white;'>{{blog.writer}}</h4>
+<h5 style='color:brown;'>{{blog.content}}</h5><br>
+<a href="{% url 'pagenumbering' %}" class='btn btn-primary'>back</a>
+
+
+
+
+
+{% endblock pagination %}

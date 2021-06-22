@@ -1,0 +1,10 @@
+{% extends 'common.html' %}
+{% block title %}reset confirm{% endblock title %}
+{% block content %}
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" name="" value="change">
+
+</form>
+{% endblock content %}

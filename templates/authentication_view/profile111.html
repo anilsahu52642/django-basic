@@ -1,0 +1,20 @@
+{% include 'common.html' %}
+{% block profilepage111 %}
+<h1 style='color:white;'>This is profile page.........</h1><hr>
+<h1 style='color:white;'>This is for function based view............</h1>
+<a href='http://127.0.0.1:8000/auth1/password_change' class='btn btn-info'>change password</a>
+<a href='http://127.0.0.1:8000/auth1/logout/' class='btn btn-info'>logout</a><hr>
+<h1 style='color:white;'>for class based view ..........</h1>
+<a href='http://127.0.0.1:8000/accounts/password_change' class='btn btn-info'>change password</a>
+<a href='http://127.0.0.1:8000/accounts/logout/' class='btn btn-info'>logout 2</a>
+
+for class based view login required is not implimented..........impliment
+
+<hr>
+<h1 style='color:white;'>for full customisation of authentication form.......</h1><br>
+<a href="{% url 'pchangepage33333' %}" class='btn btn-info'>change password</a>
+<a href="{% url 'logout33333' %}" class='btn btn-info'>logout 3</a>
+
+
+
+{% endblock profilepage111 %}

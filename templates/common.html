@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- {% load cache %} -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}common{% endblock title %}</title>
+    {% block style1 %}
+    <style>
+    .info{
+      color:green;
+    }
+    .error{
+      color:red;
+    }
+    .success{
+      color:green;
+    }
+    </style>
+    {% endblock style1 %}
+
+    <!-- this is for linking of font awesome css -->
+    <link rel='stylesheet' href="{% static 'css/all.min.css' %}">
+    <!-- thsese lines are for all other css linking -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel='stylesheet' href="{% static 'css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/owl.carousel.min2.css' %}" > -->
+
+    <!--for owl carousel-->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" >
+
+    <!-- for stylish font google font linking....see video it is not working -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+
+    <!-- our written css file... -->
+    <link rel='stylesheet' href="{% static 'css/common.css' %}">
+
+  </head>
+  <body>
+    <!this is form navbar >
+
+    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark bg-secondary">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home_page' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          All topics
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'date_and_time' %}">date and time</a>
+          <a class="dropdown-item" href="{% url 'mini_calculator' %}">Calculation</a>
+          <a class="dropdown-item" href="{% url 'sign_up' %}">authentication type1(user)</a>
+          <a class="dropdown-item" href="{% url 'create_object' %}">authentication type1(object)</a>
+          <a class="dropdown-item" href="{% url 'signup_user2' %}">authentication type2(user)</a>
+          <a class="dropdown-item" href="{% url 'create_object2' %}">authentication type2(object)</a>
+          <a class="dropdown-item" href="{% url 'create_user3' %}">authentication type3(user)</a>
+          <a class="dropdown-item" href="{% url 'create_object3' %}">authentication type3(object)</a>
+          <a class="dropdown-item" href="{% url 'full_user_form' %}">full authenticationform(user)</a>
+          <a class="dropdown-item" href="{% url 'ncreate_user4' %}">authentication form4(user)</a>
+          <a class='dropdown-item' href="{% url 'setting_cookies_page' %}">cookies</a>
+          <a class='dropdown-item' href="{% url 'cache_page1' %}">cache</a>
+          <a class='dropdown-item' href="{% url 'signal_page' %}">signal</a>
+          <a class='dropdown-item' href="{% url 'createmiddleware' %}">middleware</a>
+          <a class='dropdown-item' href="{% url 'queryset' %}">queryset</a>
+          <a class='dropdown-item' href="{% url 'mymodelinher' %}">model inheritance</a>
+          <a class='dropdown-item' href="{% url 'mymodelrelationship' %}">model relationship</a>
+          <a class='dropdown-item' href="{% url 'myview1' %}">class based view</a>
+          <a class='dropdown-item' href="{% url 'authentication1' %}">authentication view</a>
+          <a class='dropdown-item' href="{% url 'pagenumbering' %}">pagination</a>
+          <a class='dropdown-item' href="{% url 'docupload' %}">document upload</a>
+          <a class='dropdown-item' href="{% url 'fdata' %}">fake data</a>
+          <a class='dropdown-item' href="{% url 'reallogin' %}">real authentication</a>
+          <a class='dropdown-item' href="{% url 'hosting' %}">hosting app</a>
+
+
+
+
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'notes' %}">Notes</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+                          <!__This is from modal__>
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                            signup
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">(from bootstrap-modal)signup here</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  hii hello
+                                </div>
+                                <div class="modal-footer">
+                                  <a href="{% url 'create_object' %}" class='btn btn-outline-secondary'>add as object</a>
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+
+
+{% block datetime %}
+{% endblock datetime %}
+{% block calculator %}{% endblock calculator %}
+{% block home %}{% endblock home %}
+{% block createobject %}{% endblock createobject %}
+{% block createuser %}{% endblock createuser %}
+{% block signinuser %}{% endblock signinuser %}
+{% block createobject2 %}{% endblock createobject2 %}
+{% block createuser2 %}{% endblock createuser2 %}
+{% block signinuser2 %}{% endblock signinuser2 %}
+{% block createobject3 %}{% endblock createobject3 %}
+{% block updateobject3 %}{% endblock updateobject3 %}
+{% block createuser3 %}{% endblock createuser3 %}
+{% block signinuser3 %}{% endblock signinuser3 %}
+{% block fulluserform %}{% endblock fulluserform %}
+{% block createuser4 %}{% endblock createuser4 %}
+{% block signinuser4 %}{% endblock signinuser4 %}
+{% block profile %}{% endblock profile %}
+{% block passowordchange1 %}{% endblock passowordchange1 %}
+{% block passwordchange2 %}{% endblock passwordchange2 %}
+{% block setcookiepage1 %}{% endblock setcookiepage1 %}
+{% block getcookiepage1 %}{% endblock getcookiepage1 %}
+{% block deletecookies1 %}{% endblock deletecookies1 %}
+{% block cachepage1 %}{% endblock cachepage1 %}
+{% block cachepage2 %}{% endblock cachepage2 %}
+{% block tempfragmentcachepage1 %}{% endblock tempfragmentcachepage1 %}
+{% block sigal %}{% endblock sigal %}
+{% block deletecache %}{% endblock deletecache %}
+{% block cmiddleware %}{% endblock cmiddleware %}
+{% block queryset %}{% endblock queryset %}
+{% block modelinheritance %}{% endblock modelinheritance%}
+{% block modelrelatinship %}{% endblock modelrelatinship %}
+{% block class_based_view %}{% endblock class_based_view %}
+{% block template_view %}{% endblock template_view %}
+{% block template_view2 %}{% endblock template_view2 %}
+{% block listview1 %}{% endblock listview1 %}
+{% block editing_view %}{% endblock editing_view %}
+{% block thankyoupage %}{% endblock thankyoupage %}
+{% block confromdelete %}{% endblock confromdelete %}
+{% block authentication_view1 %}{% endblock authentication_view1 %}
+{% block avlogin %}{% endblock avlogin %}
+{% block profilepage111 %}{% endblock profilepage111 %}
+{% block custom_authview1 %}{% endblock custom_authview1 %}
+{% block pchange33333 %}{% endblock pchange33333 %}
+{% block pagination %}{% endblock pagination %}
+{% block documentupload %}{% endblock documentupload %}
+{% block fakedata %}{% endblock fakedata %}
+{% block rlogin %}{% endblock rlogin %}
+{% block real_signup %}{% endblock real_signup %}
+{% block rprofile %}{% endblock rprofile %}
+{% block rlogout %}{% endblock rlogout %}
+{% block rpchange %}{% endblock rpchange %}
+{% block rpasswordreset %}{% endblock rpasswordreset %}
+{% block content %}{% endblock content %}
+
+    <!--<script src="{% static 'js/ajaxcode.js' %}"></script>-->
+
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <!--for owl carousel-->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+
+    <!-- (for font awesome )below line is for(only below line... all other are for linking of commmon js file) linking of font awesome js -->
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <script src="{% static 'js/myjs.js' %}" charset="utf-8"></script>
+
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/myscript.js' %}"></script>
+  </body>
+</html>

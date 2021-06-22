@@ -1,0 +1,40 @@
+body{
+  color:blue;
+  /* background:url(https://images.unsplash.com/photo-1520262389826-d559a9aca921?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60); */
+  background: url(https://images.unsplash.com/photo-1508615070457-7baeba4003ab?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHNreXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-size:100% 100%;
+  /* background-position: top left; */
+  background-attachment: fixed;
+}
+.jumbotron{
+  color:magenta;
+  background:silver;
+}
+
+
+
+/* for stylish fonts */
+.bfont{
+  font-family: 'Redressed', cursive;
+}
+
+
+/* for using owl carousel */
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})

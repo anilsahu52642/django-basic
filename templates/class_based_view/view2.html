@@ -1,0 +1,13 @@
+{% extends 'common.html' %}
+{% block title %}tempate view{% endblock title %}
+{% block template_view %}
+<h1 style='color:red;'>This is template view </h1><hr>
+<h4>my name is:{{name}}</h4>
+<h4>my surname is:{{surname}}</h4>
+<h4>my roll no is:{{roll}}</h4><br>
+<a href="{% url 'tview3' %}" class='btn btn-secondary'>exta context</a><br>
+
+<h4>kwargs data is:{{aks}}</h4>
+<a href="http://127.0.0.1:8000/tv4/3234" class='btn btn-secondary'>kwargs data</a><br>
+
+{% endblock template_view %}

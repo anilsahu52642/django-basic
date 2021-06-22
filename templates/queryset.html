@@ -1,0 +1,46 @@
+{% extends 'common.html' %}
+{% block title %}query set operations{% endblock title %}
+{% block queryset %}
+<h1 style='color:red;'>This app contains all database related operations</h1><hr>
+<div class='container'>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="slno">id</th>
+      <th scope="col">name</th>
+      <th scope="col">roll</th>
+      <th scope="col">city</th>
+      <th scope="col">mark</th>
+      <th scope="col">passdate</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in alldata %}
+    <tr>
+      <td>{{a.id}}</td>
+      <td>{{a.name}}</td>
+      <td>{{a.roll}}</td>
+      <td>{{a.city}}</td>
+      <td>{{a.mark}}</td>
+      <td>{{a.passdate}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h5>Total no of data:{{count}}</h5>
+</div>
+<hr>
+<h2>All details are :</h2>
+<hr>
+<h6>total mark:{{total.mark__sum}}</h6>
+<h6>average mark:{{average.mark__avg}}</h6>
+<h6>maximum mark:{{maximum.ark__max}}</h6>
+<h6>minimum mark:{{minimum.mark__min}}</h6>
+<h6>total no of mark:{{nctotal.mark__count}}</h6>
+
+<div>
+  <h5>{{alldetail}}</h5>
+
+</div>
+
+{% endblock queryset %}

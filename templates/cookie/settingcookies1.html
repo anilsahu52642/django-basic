@@ -1,0 +1,9 @@
+{% extends 'common.html' %}
+{% block title %}cookies page{% endblock title %}
+{% block setcookiepage1 %}
+<h4 style='color:brown;'>This is cookies page</h4>
+<h4 style='color:white;'>setting cookies........</h4>
+<a href="{% url 'getting_cookies_page' %}" class='btn btn-warning'>getting cookies data</a>
+<a href="{% url 'deleting_cookies' %}" class='btn btn-warning'>deleting cookies data</a>
+
+{% endblock setcookiepage1 %}

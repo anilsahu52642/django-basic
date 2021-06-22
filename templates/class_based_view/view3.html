@@ -1,0 +1,53 @@
+{% include 'common.html' %}
+{% block listview1 %}
+<h1 style='color:white;'>This is list view 2</h1><hr>
+<h3 style='color:red;'>all people list present in the the database by using own template_name </h3>
+<h4 style='color:red;'>By using default context object name</h4>
+
+{{people_list}}<br>
+
+{% for p in people_list %}
+{{p.id}}
+{{p.name}}
+{{p.fname}}
+{{p.lname}}
+{{p.email}}
+{{p.password}}<br>
+{% endfor %}
+
+<hr>
+
+
+{{123peoplesss}}
+<h4 style='color:red;'>By using own context object name</h4>
+{% for p in 123peoplesss %}
+{{p.id}}
+{{p.name}}
+{{p.fname}}
+{{p.lname}}
+{{p.email}}
+{{p.password}}<br>
+{% endfor %}
+<br>
+<hr>
+<h4 style='color:red;'>For getting some object of the batabase by using filter method in views.py file</h4>
+{{123peoplesss}}
+
+<hr>
+<h1 style='color:white;'>This is for detail view....</h1><hr>
+<h4 style='color:magenta;'>For getting details of particular object.........</h4><br>
+<h4 style='color:red;'>By using default context object name</h4>
+<h5>{{people.name}}</h5><hr>
+<h4 style='color:red;'>By using own context object name</h4>
+<h5>{{apeople}}</h5>
+
+
+
+
+
+
+
+
+
+
+{% endblock listview1 %}
